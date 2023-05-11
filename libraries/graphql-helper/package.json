@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "author": "Dejan Iskra",
   "dependencies": {
-    "@rockethomes/rh-digital-commons": "1.7.0",
     "@apollo/gateway": "^2.3.3",
     "apollo-server-express": "^3.12.0",
     "@apollo/subgraph": "^2.3.3",
