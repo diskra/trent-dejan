@@ -129,8 +129,6 @@ dist
 
 .npmrc
 
-supergraph.graphql
-
 ######################
 # Terraform .gitignore
 ######################
