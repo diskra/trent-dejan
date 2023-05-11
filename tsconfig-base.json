@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+      "incremental": true,
+      "target": "es2022",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "types": [
+        "node"
+      ],
+      "lib": [
+        "ES2017"
+      ],
+      "baseUrl": "./",
+      "paths": {
+        "@eapi/graphql-helper": ["libraries/graphql-helper/src" ]
+      },
+      "allowJs": true,
+      "checkJs": false,
+      "composite": true,
+      "declaration": true,
+      "declarationMap": true,
+      "sourceMap": true,
+      "strict": true,
+      "esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+      "skipLibCheck": true,                     /* Skip type checking of declaration files. */
+      "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
+      "noEmitOnError": true,
+      "resolveJsonModule": true,
+    }
+}

@@ -1,0 +1,8 @@
+extend schema
+@link(url: "https://specs.apollo.dev/federation/v2.3",
+    import: ["@key", "@shareable", "@tag", "@external"])
+
+extend type Query {
+    _backoffice: Boolean
+    developer: String
+}

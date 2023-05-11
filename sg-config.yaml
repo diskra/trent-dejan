@@ -1,0 +1,6 @@
+federation_version: 2
+subgraphs:
+  backoffice-subgraph:
+    routing_url: http://backoffice-subgraph:3000/graphql
+    schema:
+      file: ./services/backoffice-subgraph/schema.graphql

@@ -1,0 +1,64 @@
+version: '3'
+
+networks:
+  eapi-local: {}
+
+services:
+  api-reverse-proxy:
+    build:
+      context: ./api-reverse-proxy/
+    volumes:
+      - ./api-reverse-proxy/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ./api-reverse-proxy/inject-user-id.lua:/usr/local/openresty/nginx/inject-user-id.lua
+    ports:
+      - "8081:8081"
+    networks:
+      - eapi-local
+    depends_on:
+      - graph-gateway
+
+  graph-gateway:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        - SSH_PRIVATE_KEY
+    command: "node-dev --inspect=0.0.0.0:9229 dist/index.js"
+    volumes:
+      - .:/app
+    working_dir: /app/services/graph-gateway
+    restart: always
+    networks:
+      - eapi-local
+    env_file: .env
+    environment:
+      - PORT=3000
+      - SERVICE_NAME=graph-gateway
+    expose:
+      - "3000"
+    ports:
+      - "19405:9229"
+    tty: true
+
+  backoffice-subgraph:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        - SSH_PRIVATE_KEY
+    command: "node-dev --inspect=0.0.0.0:9229 dist/index.js"
+    volumes:
+      - .:/app
+    working_dir: /app/services/backoffice-subgraph
+    restart: always
+    networks:
+      - eapi-local
+    env_file: .env
+    environment:
+      - PORT=3000
+      - SERVICE_NAME=backoffice-subgraph
+    expose:
+      - "3000"
+    ports:
+      - "19409:9229"
+    tty: true

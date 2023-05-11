@@ -1,0 +1,7 @@
+.aws/
+.github/
+.vscode/
+.yarn/
+out/
+dist/
+node_modules/

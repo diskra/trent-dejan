@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "references": [
+    {"path": "./services/graph-gateway" },
+    {"path": "./services/backoffice-subgraph"},
+    {"path": "./libraries/graphql-helper"},
+  ]
+}
